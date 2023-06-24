@@ -1,6 +1,7 @@
 package com.qa.opencart.factory;
 
 import com.microsoft.playwright.*;
+import org.testng.annotations.Parameters;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -38,14 +39,14 @@ public class PlaywrightFactory {
         return tlPage.get();
     }
 
-    public Page initBrowser(Properties prop) {
-        String browserName = prop.getProperty("browser").trim();
-        System.out.println("Browser name is : " + browserName);
+    public Page initBrowser(Properties prop, String browser) {
+        //String browserName = prop.getProperty("browser").trim();
+        System.out.println("Browser name is : " + browser);
 
         //playwright = Playwright.create();
         tlPlaywright.set(Playwright.create());
 
-        switch (browserName.toLowerCase()) {
+        switch (browser.toLowerCase()) {
             case "chromium":
                 //browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
                 tlBrowser.set(getPlaywright().chromium().launch(new BrowserType.LaunchOptions().setHeadless(false)));
