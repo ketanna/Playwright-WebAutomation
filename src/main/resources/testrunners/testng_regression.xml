@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="OpenCartTest-RegressionPWSuite" thread-count="4" parallel="tests">
+<suite name="OpenCartTest-RegressionPWSuite" thread-count="5" parallel="tests">
 
     <listeners>
         <listener class-name="com.qa.opencart.util.ExtentReportListener"/>
@@ -32,6 +32,13 @@
         <parameter name="browser" value="firefox"/>
         <classes>
             <class name="com.qa.opencart.tests.HomePageTest"/>
+        </classes>
+    </test>
+
+    <test name="Open Cart Login Page Test_chromium">
+        <parameter name="browser" value="chromium"/>
+        <classes>
+            <class name="com.qa.opencart.tests.LoginPageTest"/>
         </classes>
     </test>
 
